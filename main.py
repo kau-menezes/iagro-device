@@ -11,7 +11,7 @@ if __name__ == "__main__":
     # fonts setup
     load_fonts()
     
-    # main font for the whole project - otherwise overwrited
+    # main font for the whole project - otherwise overwritten
     # app.setFont(get_font("regular", 14))
     
     window = QMainWindow()

@@ -33,18 +33,18 @@ class FieldScanningPage(QWidget):
             }
             
         """)
-        
-        # Main layout
+
+        # main layout
         layout = QVBoxLayout(self)
         
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
 
-        # Header
+        # header
         header = Header("Field Scanning", f"Checking {self.field_name}'s health.")
         layout.addWidget(header)
 
-        # Timer container
+        # timer container
         timer_container = QWidget()
         timer_container.setFixedSize(700, 300)
         timer_container.setStyleSheet("background-color: #0F172A; border-radius: 12px; padding: 30px;")
@@ -66,27 +66,27 @@ class FieldScanningPage(QWidget):
         timer_layout.addSpacing(15)
         layout.addWidget(timer_container, alignment=Qt.AlignCenter)
 
-        # Content container
+        # content container
         content_container = QWidget()
         content_container.setFixedSize(700, 400)
         content_container.setStyleSheet("background-color: #262F43; padding: 10px 20px 20px 20px; border-radius: 12px; margin: 0px;")
         content_layout = QVBoxLayout(content_container)
         
 
-        # Wrapper layout for title + message
+        # wrapper layout for title + message
         status_wrapper = QWidget()
         status_layout = QVBoxLayout(status_wrapper)
         status_layout.setContentsMargins(0, 0, 0, 0)
         status_layout.setSpacing(8)
         status_layout.setAlignment(Qt.AlignTop)
 
-        # Title
+        # title
         status_title = QLabel("Status")
         status_title.setStyleSheet("font-weight: bold; font-size: 24px;")
         status_title.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         status_layout.addWidget(status_title)
 
-        # Message
+        # message
         self.status_message = QLabel("Scanning crops...")
         self.status_message.setAlignment(Qt.AlignTop)
         self.status_message.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
@@ -95,7 +95,7 @@ class FieldScanningPage(QWidget):
 
         status_layout.addWidget(self.status_message)
 
-        # Add to content
+        # add to content
         content_layout.addWidget(status_wrapper)
         layout.addWidget(content_container, alignment=Qt.AlignCenter)
 
@@ -106,7 +106,7 @@ class FieldScanningPage(QWidget):
         final_layout = QHBoxLayout(final_container)
         final_layout.setAlignment(Qt.AlignCenter)
         
-        # End Scan button
+        # end scan button
         self.end_scan_button = QPushButton("End Scan")
         self.end_scan_button.setStyleSheet(
             """
@@ -122,7 +122,7 @@ class FieldScanningPage(QWidget):
         self.end_scan_button.clicked.connect(self.end_scan)
         layout.addWidget(self.end_scan_button, alignment=Qt.AlignCenter)
         
-        # Go Back button
+        # go back button
         self.return_button = QPushButton("Go Back")
         self.return_button.setStyleSheet(
             """
@@ -145,7 +145,7 @@ class FieldScanningPage(QWidget):
         
         layout.addWidget(final_container, alignment=Qt.AlignCenter)
 
-        # Timer
+        # timer
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_timer)
         self.elapsed_ms = 0

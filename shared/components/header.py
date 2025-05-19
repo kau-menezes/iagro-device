@@ -26,12 +26,10 @@ class Header(QFrame):
         """)
         # self.setFixedHeight(80)
 
-        # Create layout
-        layout = QVBoxLayout(self)  # Set layout on self
-        layout.setContentsMargins(0, 0, 0, 0)  # Remove margins
+        layout = QVBoxLayout(self) 
+        layout.setContentsMargins(0, 0, 0, 0)  
         layout.setSpacing(0)
 
-        # Title and subtitle
         title = QLabel(title_text)
         title.setFont(get_font("bold", 32))
         title.setStyleSheet("color: white; font-size: 32px; font-weight: bold; margin: 20 20 10 20")
@@ -40,11 +38,10 @@ class Header(QFrame):
         subtitle.setFont(get_font("light", 24))
         subtitle.setStyleSheet("color: #cccccc;padding-left: 12px; font-weight: 200; margin: 0 20 20 20")
         
-        # Add widgets to layout
         layout.addWidget(title)
         layout.addWidget(subtitle)
         
-        # Optional: horizontal line (you can add it outside if preferred)
+        
         line = QFrame()
         line.setFrameShape(QFrame.HLine)
         line.setStyleSheet("border-bottom: 1px solid white;")

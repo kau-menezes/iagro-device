@@ -34,14 +34,14 @@ class FieldSelectionPage(QWidget):
         """)
 
 
-        layout = QVBoxLayout(self)  # Set layout directly on self
+        layout = QVBoxLayout(self)  
 
-        # Header
+        # header component
         header = Header("Select Field", "Tap on a field to start scanning.")
         
         layout.addWidget(header)
 
-        # Grid of Field Cards
+        
         grid = QGridLayout()
         grid.setVerticalSpacing(20)
         layout.setContentsMargins(0, 0, 0, 0)
