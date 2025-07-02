@@ -1,0 +1,314 @@
+[
+  {
+    "datetime": "2025-07-02T16:42:53.633789",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:42:59.303529",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:05.000138",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:10.646897",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:16.326969",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:21.978565",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:27.630685",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:33.326966",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:39.301362",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:45.191557",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:50.867273",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:43:56.495524",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:02.160507",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:07.793675",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:13.426648",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:19.085353",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:24.715192",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:30.373541",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:36.065170",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:41.697226",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:47.330424",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:52.966001",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:44:58.602488",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:04.265274",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:09.916188",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:15.554783",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:21.191240",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:26.821323",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:32.472065",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:38.122881",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:43.776492",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:49.433203",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:45:55.099207",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Early_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:00.784129",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:06.402966",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:12.069126",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:17.719738",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:23.393822",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  },
+  {
+    "datetime": "2025-07-02T16:46:29.391651",
+    "location": {
+      "latitude": 42.9868853,
+      "longitude": 19.5180992
+    },
+    "class": "Potato___Late_blight"
+  }
+]

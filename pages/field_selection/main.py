@@ -53,8 +53,7 @@ class FieldSelectionPage(QWidget):
         for i, name in enumerate(fields):
             card = FieldCard(name, "Brazil, Minas Gerais", "120", "Last Scan: 14 days ago")
             print(f"Creating card for {name}, {i}")
-            card.clicked.connect(lambda checked, name=card.field_name: self.go_to_field_scan(card.field_name))
-            
+            card.clicked.connect(self.go_to_field_scan)
             grid.addWidget(card, i // 2, i % 2)
             
         layout.addSpacing(20)
