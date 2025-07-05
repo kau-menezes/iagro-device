@@ -19,11 +19,12 @@ if __name__ == "__main__":
     
     window = QMainWindow()
     
-    check_existence()
     
     settings = get_settings()
     set_value("company_id", None)
     set_value("company_name", None)
+    
+    check_existence()
     
     router = Router()
     window.setCentralWidget(router)

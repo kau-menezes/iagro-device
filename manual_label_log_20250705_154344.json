@@ -1,0 +1,26 @@
+[
+  {
+    "datetime": "2025-07-05T15:43:31.788471",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-05T15:43:33.870877",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-05T15:43:37.668826",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-05T15:43:41.789297",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  }
+]

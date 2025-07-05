@@ -5,6 +5,8 @@ from PySide6.QtWidgets import (
 from .components.field_card import FieldCard
 
 from shared.components.header import Header
+import requests
+from utils.settings_manager import get_value
 
 class FieldSelectionPage(QWidget):
     
@@ -47,11 +49,12 @@ class FieldSelectionPage(QWidget):
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(0)
 
-        
-
-        fields = ["Field A", "Field B", "Field C"]
-        for i, name in enumerate(fields):
-            card = FieldCard(name, "Brazil, Minas Gerais", "120", "Last Scan: 14 days ago")
+        # Fetch fields from API
+        self.fields = self.fetch_fields()
+        for i, field in enumerate(self.fields):
+            name = field.get("nickname", f"Field {i+1}")
+            area = str(int(field.get("area", 0)))
+            card = FieldCard(name, "Brazil, Minas Gerais", area, "Last Scan: 14 days ago")
             print(f"Creating card for {name}, {i}")
             card.clicked.connect(lambda checked, name=card.field_name: self.go_to_field_scan(card.field_name))
             
@@ -61,6 +64,22 @@ class FieldSelectionPage(QWidget):
         layout.addLayout(grid)
         layout.addStretch()
         
+    def fetch_fields(self):
+        company_id = get_value("company_id")
+        if not company_id:
+            print("No company_id found in QSettings.")
+            return []
+        url = f"http://localhost:5215/api/fields/company/{company_id}"
+        try:
+            response = requests.get(url, timeout=5)
+            if response.ok:
+                return response.json()
+            else:
+                print(f"Failed to fetch fields: {response.status_code}")
+        except Exception as e:
+            print(f"Error fetching fields: {e}")
+        return []
+
     def go_to_field_scan(self, field_name):
         print(f"Clicked on {field_name}")
         self.router.navigate("field_scanning", field_name=field_name)

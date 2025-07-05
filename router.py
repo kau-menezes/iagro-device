@@ -18,7 +18,7 @@ class Router(QStackedWidget):
         settings = get_settings()
         
         if get_value("company_id") is None:
-            self.navigate("field_selection")   # MUDAR PARA PÁGINA DE LOGIN POSTERIORMENTE
+            self.navigate("login")   # MUDAR PARA PÁGINA DE LOGIN POSTERIORMENTE
         else:
             self.navigate("field_selection")  # initial page    
         

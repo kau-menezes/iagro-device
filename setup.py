@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import requests
 import qrcode
 import json
+import geopy
+from geopy.geocoders import Nominatim
+from datetime import datetime
 
 from utils.settings_manager import set_value
 
@@ -26,6 +29,10 @@ def check_existence():
     
     res = get_device_existence()
     
+    if res is None:
+        print("❌ Could not contact the API. Please check your internet connection.")
+        return -1   
+    
     if (res.status_code == 404):
         try:
             body = {"code": DEVICE_CODE}
@@ -40,8 +47,9 @@ def check_existence():
         return -1
             
     elif res.status_code == 200:
-        if res.json()['companyId'] is not None:
-            company_id = res['companyId']
+        data = res.json()
+        if data.get('companyId') is not None:
+            company_id = data['companyId']
             print(f"🌱 Device linked to company {company_id}")
             set_value("company_id", company_id)
             
@@ -55,14 +63,15 @@ def check_connection():
     try:
         req = requests.get(f"{API_URL}/{DEVICE_CODE}")
         
-        if (req.ok):
-            if req.json()['companyId'] is not None:
-                return(0)
-            
+        if req.ok:
+            data = req.json()
+            if data.get('companyId') is not None:
+                set_value("company_id", data['companyId'])
+                return 0
             else:
-                return(-1)
+                return -1
         
-        return(-1)
+        return -1
     
     except:
         print("Could not contact the API.")
@@ -71,3 +80,32 @@ def check_connection():
 def generate_qrcode():
     img = qrcode.make(FRONT_URL)
     img.save("assets/link/qrcode.png")
+
+def save_detection_log(label, folder_path):
+    geolocator = Nominatim(user_agent="plant_disease_app")
+    try:
+        location = geolocator.geocode("me")
+        coords = {
+            "latitude": location.latitude if location else None,
+            "longitude": location.longitude if location else None
+        }
+    except Exception as e:
+        print(f"Error getting location: {e}")
+        coords = {"latitude": None, "longitude": None}
+    log_entry = {
+        "datetime": datetime.now().isoformat(),
+        "location": coords,
+        "disease": label
+    }
+    results_path = os.path.join(folder_path, "results.json")
+    logs = []
+    if os.path.exists(results_path):
+        with open(results_path, "r") as f:
+            try:
+                logs = json.load(f)
+            except Exception:
+                logs = []
+    logs.append(log_entry)
+    with open(results_path, "w") as f:
+        json.dump(logs, f, indent=2)
+    print(f"Detection log saved to {results_path}")

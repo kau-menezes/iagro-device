@@ -7,6 +7,10 @@ from PySide6.QtCore import QTimer, Qt
 from shared.components.header import Header
 from utils.font_loader import get_font
 from .components.status_icon import CircleIcon
+from manual_labeling import analyze, stop_event
+import threading
+from setup import save_detection_log
+import os
 
 
 class FieldScanningPage(QWidget):
@@ -72,6 +76,7 @@ class FieldScanningPage(QWidget):
         content_container.setStyleSheet("background-color: #262F43; padding: 10px 20px 20px 20px; border-radius: 12px; margin: 0px;")
         content_layout = QVBoxLayout(content_container)
         
+
 
         # wrapper layout for title + message
         status_wrapper = QWidget()
@@ -151,6 +156,21 @@ class FieldScanningPage(QWidget):
         self.elapsed_ms = 0
         self.timer.start(10)
 
+        self.frame_thread = None
+        self.start_scan()
+
+    def start_scan(self):
+        # Reset the stop_event before starting
+        stop_event.clear()
+        # Run manual labeling in a background thread so the GUI stays responsive
+        def run_manual_labeling():
+            analyze(None, stop_event=stop_event)
+        self.frame_thread = threading.Thread(target=run_manual_labeling, daemon=True)
+        self.frame_thread.start()
+        self.end_scan_button.setEnabled(True)
+        self.end_scan_button.setVisible(True)
+        self.return_button.setVisible(False)
+
     def update_timer(self):
         self.elapsed_ms += 10
         ms = (self.elapsed_ms // 10) % 100
@@ -160,18 +180,19 @@ class FieldScanningPage(QWidget):
         self.elapsed_time_label.setText(f"{h:02d}:{m:02d}:{s:02d}:{ms:02d}")
 
     def end_scan(self):
+        # Signal the manual labeling thread to stop immediately
+        stop_event.set()
+        if self.frame_thread is not None:
+            self.frame_thread.join(timeout=2)  # Wait for the thread to finish (max 2s)
         self.return_button.setVisible(True)
-
         if self.status == 0:
             self.status = 1
             self.timer.stop()
-
             self.icon_label.circle_color = QColor("#4CAF50")
             self.icon_label.pixmap = QPixmap("assets/icons/check.png").scaled(
                 40, 40, Qt.KeepAspectRatio, Qt.SmoothTransformation
             )
             self.icon_label.update()
-
             self.status_message.setStyleSheet("color: #FFFFFF;")
             self.status_message.setText(
                 "Area Scanned: 120 acres<br><br>"
@@ -179,11 +200,7 @@ class FieldScanningPage(QWidget):
                 "<span style='color: #FF4C4C;'>Potential Diseases: 8%</span>"
             )
             self.status_message.setTextFormat(Qt.RichText)
-            
             self.status_message.setStyleSheet("color: white; font-weight: 200; font-size: 24px;")
-
-        
-
             self.end_scan_button.setEnabled(False)
             
     def reset_page(self):
