@@ -1,4 +1,5 @@
 import os
+import sys
 from PySide6.QtWidgets import (
     QWidget, QLabel, QVBoxLayout, QPushButton, QHBoxLayout, QSizePolicy
 )
@@ -8,6 +9,7 @@ from PySide6.QtCore import QTimer, Qt
 from shared.components.header import Header
 from utils.font_loader import get_font
 from .components.status_icon import CircleIcon
+from manual_labeling import analyze
 
 import cv2
 import numpy as np
@@ -204,9 +206,15 @@ class FieldScanningPage(QWidget):
 
     def start_scan(self):
         self.scanning = True
-        self.capture = cv2.VideoCapture(0)
-        self.frame_thread = threading.Thread(target=self.process_frames, daemon=True)
+        # Run manual labeling in a background thread so the GUI stays responsive
+        def run_manual_labeling():
+            analyze(self.model)
+            self.scanning = False
+        self.frame_thread = threading.Thread(target=run_manual_labeling, daemon=True)
         self.frame_thread.start()
+        self.end_scan_button.setEnabled(True)
+        self.end_scan_button.setVisible(True)
+        self.return_button.setVisible(False)
 
     def process_frames(self):
         while self.scanning and self.capture.isOpened():
@@ -242,11 +250,11 @@ class FieldScanningPage(QWidget):
             if cv2.waitKey(10) & 0xFF == ord('q'):
                 self.scanning = False
                 break
-            # Wait 5 seconds before next frame analysis
-            for _ in range(500):
+            # Wait 1 seconds before next frame analysis
+            for _ in range(100):
                 if not self.scanning:
                     break
-                cv2.waitKey(10)  # 10ms * 500 = 5s
+                cv2.waitKey(1)  # 1ms * 100 = 1s
         cv2.destroyAllWindows()
 
     def end_scan(self):
