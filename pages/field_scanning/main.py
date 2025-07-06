@@ -15,11 +15,10 @@ import os
 
 class FieldScanningPage(QWidget):
     def __init__(self, router, field_name=None, field_id=None, parent=None):
-        print(f"🚀 FieldScanningPage loaded with: field_name={field_name}, field_id={field_id}")
         super().__init__(parent)
         self.router = router
         self.field_name = field_name or "Unknown Field"
-        self.field_id = field_id or "Unknown Id"
+        self.field_id = field_id or "Unknown Field"
         self.status = 0
 
         self.setWindowTitle("Field Scanning Page")
@@ -186,6 +185,40 @@ class FieldScanningPage(QWidget):
         stop_event.set()
         if self.frame_thread is not None:
             self.frame_thread.join(timeout=2)  # Wait for the thread to finish (max 2s)
+        # --- SEND TO API ---
+        import glob, json, os
+        log_files = glob.glob("manual_label_log_*.json")
+        detections = []
+        if log_files:
+            latest_log = max(log_files, key=os.path.getctime)
+            with open(latest_log, 'r') as f:
+                logs = json.load(f)
+            detections = [
+                {
+                    'detectedAt': d['datetime'],
+                    'locationPoint': {
+                        'latitude': d['latitude'],
+                        'longitude': d['longitude']
+                    },
+                    'disease': d['label']
+                }
+                for d in logs if d['label'].lower() != 'healthy'
+            ]
+        if detections and self.field_id:
+            from utils.settings_manager import get_value
+            import requests
+            code = os.getenv('CODE')
+            payload = {
+                "deviceCode": code,
+                "fieldId": self.field_id,
+                "cropDiseasesFound": detections
+            }
+            print("Scan POST body:", json.dumps(payload, indent=2))
+            try:
+                resp = requests.post("http://localhost:5215/api/scans", json=payload, timeout=10)
+                print(f"Scan POST response: {resp.status_code} {resp.text}")
+            except Exception as e:
+                print(f"Failed to send scan: {e}")
         self.return_button.setVisible(True)
         if self.status == 0:
             self.status = 1
