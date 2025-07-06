@@ -8,6 +8,7 @@ from shared.components.header import Header
 import requests
 from utils.settings_manager import get_value
 
+
 class FieldSelectionPage(QWidget):
     
     def __init__(self, router, parent=None):
@@ -32,18 +33,14 @@ class FieldSelectionPage(QWidget):
                 font-size: 24px;
                 font-weight: bold;
             }
-            
         """)
 
-
-        layout = QVBoxLayout(self)  
+        layout = QVBoxLayout(self)
 
         # header component
         header = Header("Select Field", "Tap on a field to start scanning.")
-        
         layout.addWidget(header)
 
-        
         grid = QGridLayout()
         grid.setVerticalSpacing(20)
         layout.setContentsMargins(0, 0, 0, 0)
@@ -53,17 +50,22 @@ class FieldSelectionPage(QWidget):
         self.fields = self.fetch_fields()
         for i, field in enumerate(self.fields):
             name = field.get("nickname", f"Field {i+1}")
+            field_id = str(field.get("id"))
+            print(field_id)
             area = str(int(field.get("area", 0)))
-            card = FieldCard(name, "Brazil, Minas Gerais", area, "Last Scan: 14 days ago")
-            print(f"Creating card for {name}, {i}")
-            card.clicked.connect(lambda checked, name=card.field_name: self.go_to_field_scan(card.field_name))
+
+            card = FieldCard(name, field_id, "Brazil, Minas Gerais", area, "Last Scan: 14 days ago")
+            print(f"Creating card for {name}, id: {field_id}, {i}")
             
+            # conecta passando os dois valores
+            card.clicked.connect(self.go_to_field_scan)
+
             grid.addWidget(card, i // 2, i % 2)
-            
+
         layout.addSpacing(20)
         layout.addLayout(grid)
         layout.addStretch()
-        
+
     def fetch_fields(self):
         company_id = get_value("company_id")
         if not company_id:
@@ -80,6 +82,6 @@ class FieldSelectionPage(QWidget):
             print(f"Error fetching fields: {e}")
         return []
 
-    def go_to_field_scan(self, field_name):
-        print(f"Clicked on {field_name}")
-        self.router.navigate("field_scanning", field_name=field_name)
+    def go_to_field_scan(self, field_name, field_id):
+        print(f"Clicked on {field_name}, ID: {field_id}")
+        self.router.navigate("field_scanning", field_name=field_name, field_id=field_id)

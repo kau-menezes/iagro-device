@@ -18,9 +18,9 @@ class Router(QStackedWidget):
         settings = get_settings()
         
         if get_value("company_id") is None:
-            self.navigate("login")   # MUDAR PARA PÁGINA DE LOGIN POSTERIORMENTE
+            self.navigate("login")  # mudar para login
         else:
-            self.navigate("field_selection")  # initial page    
+            self.navigate("field_selection")  # página inicial
         
 
     def navigate(self, route_name, **kwargs):
@@ -30,11 +30,14 @@ class Router(QStackedWidget):
 
         if route_name not in self.pages:
             if route_name == "field_scanning":
-                self.pages[route_name] = self.routes[route_name](self, kwargs.get("field_name", None))
+                self.pages[route_name] = self.routes[route_name](
+                    self,
+                    field_name=kwargs.get("field_name", None),
+                    field_id=kwargs.get("field_id", None)
+                )
             else:
                 self.pages[route_name] = self.routes[route_name](self)
 
         if self.indexOf(self.pages[route_name]) == -1:
             self.addWidget(self.pages[route_name])
         self.setCurrentWidget(self.pages[route_name])
-

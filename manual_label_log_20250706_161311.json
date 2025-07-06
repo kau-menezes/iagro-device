@@ -1,0 +1,38 @@
+[
+  {
+    "datetime": "2025-07-06T16:13:07.718712",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T16:13:08.260675",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T16:13:08.659882",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T16:13:08.901053",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T16:13:09.060256",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T16:13:09.190083",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  }
+]

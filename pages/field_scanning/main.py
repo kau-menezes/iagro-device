@@ -14,10 +14,12 @@ import os
 
 
 class FieldScanningPage(QWidget):
-    def __init__(self, router, field_name=None, parent=None):
+    def __init__(self, router, field_name=None, field_id=None, parent=None):
+        print(f"🚀 FieldScanningPage loaded with: field_name={field_name}, field_id={field_id}")
         super().__init__(parent)
         self.router = router
         self.field_name = field_name or "Unknown Field"
+        self.field_id = field_id or "Unknown Id"
         self.status = 0
 
         self.setWindowTitle("Field Scanning Page")
@@ -45,7 +47,7 @@ class FieldScanningPage(QWidget):
         layout.setSpacing(0)
 
         # header
-        header = Header("Field Scanning", f"Checking {self.field_name}'s health.")
+        header = Header("Field Scanning", f"Checking {self.field_name}'s health. {self.field_id}")
         layout.addWidget(header)
 
         # timer container

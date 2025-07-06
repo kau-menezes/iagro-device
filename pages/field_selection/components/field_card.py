@@ -7,11 +7,12 @@ from PySide6.QtCore import Qt, Signal
 from utils.font_loader import get_font
 
 class FieldCard(QFrame):
-    clicked = Signal(str) 
+    clicked = Signal(str, str) 
     
-    def __init__(self, field_name, location, area, scan_info):
+    def __init__(self, field_name, field_id, location, area, scan_info):
         super().__init__()
         self.field_name = field_name
+        self.field_id = field_id
 
         self.setObjectName("field_card")
 
@@ -92,4 +93,4 @@ class FieldCard(QFrame):
         
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
-                self.clicked.emit(self.field_name) 
+                self.clicked.emit(self.field_name, self.field_id) 
