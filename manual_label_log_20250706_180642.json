@@ -1,0 +1,80 @@
+[
+  {
+    "datetime": "2025-07-06T18:06:25.731427",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:27.955575",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:29.092140",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:29.207496",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:30.223066",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:30.305824",
+    "label": "Light Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:32.658357",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:34.675067",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:37.027429",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:37.142882",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:37.235370",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:37.330247",
+    "label": "Healthy",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  },
+  {
+    "datetime": "2025-07-06T18:06:37.634942",
+    "label": "Late Blight",
+    "latitude": 42.9868853,
+    "longitude": 19.5180992
+  }
+]

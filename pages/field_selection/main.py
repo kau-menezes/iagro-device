@@ -54,7 +54,7 @@ class FieldSelectionPage(QWidget):
             print(field_id)
             area = str(int(field.get("area", 0)))
 
-            card = FieldCard(name, field_id, "Brazil, Minas Gerais", area, "Last Scan: 14 days ago")
+            card = FieldCard(name, field_id, "Brazil", area, "Last Scan: 14 days ago")
             print(f"Creating card for {name}, id: {field_id}, {i}")
             
             # conecta passando os dois valores
